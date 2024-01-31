@@ -28,7 +28,7 @@ export default function AddMessageView(){
              { username !== '' &&
                 <View>
                      <TextInput style={Style.formfield} label={'Message'} value={msg} onChangeText={setMsg}/>
-                     <Button style={Style.formfield} mode="outlined" onPress={addMessage}>Add message</Button>
+                     <Button style={Style.formfield} mode="contained" onPress={addMessage}>Add message</Button>
                 </View>
              }
         </View>

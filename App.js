@@ -9,7 +9,7 @@ import UserView from './components/UserView';
 import AddMessageView from './components/AddMessageView';
 import MessagesView from './components/MessagesView';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Style from './styles/Style';
+import Style, { MyTheme } from './styles/Style';
 
 export default function App() {
 
@@ -21,7 +21,7 @@ export default function App() {
   return (
     <UserContext.Provider value={{ username, setUsername }}>
       <MessagesContext.Provider value={{ messages, setMessages }}>
-        <PaperProvider theme={MD3LightTheme}>
+        <PaperProvider theme={MyTheme}>
           <SafeAreaProvider>
             <Navigation />
           </SafeAreaProvider>
@@ -36,7 +36,15 @@ const Tab = createMaterialTopTabNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Tab.Navigator tabBarPosition='bottom' style={Style.container} screenOptions={{tabBarActiveTintColor: 'brown', tabBarInactiveTintColor: 'orange'}}>
+      <Tab.Navigator 
+        tabBarPosition='bottom' 
+        style={Style.container} 
+        screenOptions={{
+          tabBarActiveTintColor: 'black', 
+          tabBarInactiveTintColor: MyTheme.colors.primary,
+          tabBarStyle: {backgroundColor: MyTheme.colors.surfaceVariant}
+        }}
+      >
         <Tab.Screen
           name='user'
           options={{ title: 'User', tabBarIcon: ({color}) => <Icon color={color} source='account-circle' size={24} /> }}

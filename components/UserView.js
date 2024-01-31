@@ -22,7 +22,7 @@ export default function UserView(){
         <View style={Style.navview}>
             <Text variant="headlineLarge" style={Style.header}>{header}</Text>
             <TextInput style={Style.formfield} label={'Name'} value={name} onChangeText={setName}/>
-            <Button style={Style.formfield} mode="outlined" onPress={changeUser}>Change user</Button>
+            <Button style={Style.formfield} mode="contained" onPress={changeUser}>Change user</Button>
         </View>
     );
 }

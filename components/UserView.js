@@ -1,14 +1,28 @@
 import { useContext, useState } from "react";
-import { Text } from "react-native-paper";
+import { Button, Text, TextInput } from "react-native-paper";
 import { UserContext } from "./Contexts";
+import { Alert, View } from "react-native";
+import Style from "../styles/Style";
 
 export default function UserView(){
 
     const [name, setName] = useState('');
     const {username, setUsername} = useContext(UserContext);
 
+    let header = username === '' ? 'Set user' : 'Welcome ' + username;
 
-    //Create textinput and button to change the username in the context when button pressed (use paper components)
+    function changeUser(){
+        setUsername(name);
+        let info = name === '' ? 'Cannot set empty name' : 'User changed to ' + name;
+        Alert.alert(info);
+        setName('');
+    }
 
-    return(<Text>User view</Text>);
+    return(
+        <View style={Style.navview}>
+            <Text variant="headlineLarge" style={Style.header}>{header}</Text>
+            <TextInput style={Style.formfield} label={'Name'} value={name} onChangeText={setName}/>
+            <Button style={Style.formfield} mode="outlined" onPress={changeUser}>Change user</Button>
+        </View>
+    );
 }

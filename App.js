@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { MessagesContext, UserContext } from './components/Contexts';
-import { MD3LightTheme, PaperProvider } from 'react-native-paper';
+import { Icon, MD3LightTheme, PaperProvider } from 'react-native-paper';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import UserView from './components/UserView';
@@ -14,14 +14,14 @@ import Style from './styles/Style';
 export default function App() {
 
   const [username, setUsername] = useState('');
-  const [messages, setMessages] = useState([]); 
+  const [messages, setMessages] = useState([]);
 
   return (
-    <UserContext.Provider value={{username, setUsername}}>
-      <MessagesContext.Provider value={{messages, setMessages}}>
+    <UserContext.Provider value={{ username, setUsername }}>
+      <MessagesContext.Provider value={{ messages, setMessages }}>
         <PaperProvider theme={MD3LightTheme}>
           <SafeAreaProvider>
-            <Navigation/>
+            <Navigation />
           </SafeAreaProvider>
         </PaperProvider>
       </MessagesContext.Provider>
@@ -31,13 +31,24 @@ export default function App() {
 
 const Tab = createMaterialTopTabNavigator();
 
-function Navigation(){
-  return(
+function Navigation() {
+  return (
     <NavigationContainer>
-      <Tab.Navigator tabBarPosition='bottom' style={Style.container}>
-        <Tab.Screen name='user' options={{title: 'User'}} component={UserView} />
-        <Tab.Screen name='addmessage' options={{title: 'Add message'}} component={AddMessageView}/>
-        <Tab.Screen name='messages' options={{title: 'Messages'}} component={MessagesView}/>
+      <Tab.Navigator tabBarPosition='bottom' style={Style.container} screenOptions={{tabBarActiveTintColor: 'brown', tabBarInactiveTintColor: 'orange'}}>
+        <Tab.Screen
+          name='user'
+          options={{ title: 'User', tabBarIcon: ({color}) => <Icon color={color} source='account-circle' size={24} /> }}
+          component={UserView}
+        />
+        <Tab.Screen
+          name='addmessage'
+          options={{ title: 'Add message', tabBarIcon: ({color}) => <Icon color={color} source='message-processing' size={24} /> }}
+          component={AddMessageView}
+        />
+        <Tab.Screen
+          name='messages'
+          options={{ title: 'Messages', tabBarIcon: ({color}) => <Icon color={color} source='clipboard-list' size={24} /> }}
+          component={MessagesView} />
       </Tab.Navigator>
     </NavigationContainer>
   )

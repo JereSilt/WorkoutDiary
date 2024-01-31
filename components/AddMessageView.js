@@ -16,8 +16,6 @@ export default function AddMessageView(){
 
         const date = new Date(); 
      
-        
-
         setMessages( prev => [...prev, {username, msg, date}]);
         setMsg('');
     }       

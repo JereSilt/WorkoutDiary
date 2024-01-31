@@ -13,6 +13,15 @@ export default Style = StyleSheet.create({
     },
     formfield:{
         margin: 5
+    },
+    itemText:{
+        fontWeight: 'bold',
+        fontSize: 18
+    },
+    divider:{
+        marginTop:5, 
+        marginBottom: 5,
+        backgroundColor: 'black'
     }
 
 })

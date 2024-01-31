@@ -16,6 +16,8 @@ export default function App() {
   const [username, setUsername] = useState('');
   const [messages, setMessages] = useState([]);
 
+  console.log(messages);
+
   return (
     <UserContext.Provider value={{ username, setUsername }}>
       <MessagesContext.Provider value={{ messages, setMessages }}>

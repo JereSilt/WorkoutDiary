@@ -1,6 +1,17 @@
 import { createContext } from "react";
+import { useState } from "react";
+import React from 'react';
 
-const UserContext = createContext();
-const MessagesContext = createContext();
+const ExerciseName = createContext();
+const ExerciseListContext = createContext();
 
-export {UserContext,MessagesContext};
+const ExerciseListProvider = ({ children }) => {
+  const [exercises, setExercises] = useState([]);
+  return (
+    <ExerciseListContext.Provider value={{ exercises, setExercises }}>
+      {children}
+    </ExerciseListContext.Provider>
+  );
+};
+
+export { ExerciseName, ExerciseListContext, ExerciseListProvider};

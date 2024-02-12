@@ -8,8 +8,9 @@ const ExerciseListContext = createContext();
 
 const ExerciseListProvider = ({ children }) => {
   const [exercises, setExercises] = useState([]);
+  const [distanceUnit, setDistanceUnit] = useState('Km');
   return (
-    <ExerciseListContext.Provider value={{ exercises, setExercises }}>
+    <ExerciseListContext.Provider value={{ exercises, setExercises, distanceUnit, setDistanceUnit }}>
       {children}
     </ExerciseListContext.Provider>
   );

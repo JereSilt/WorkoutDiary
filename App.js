@@ -6,6 +6,7 @@ import ExerciseListScreen from './components/ExerciseListScreen';
 import AddExerciseScreen from './components/AddExerciseScreen';
 import SettingsScreen from './components/SettingsScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { PaperProvider } from 'react-native-paper';
 
 import { ExerciseName, ExerciseListContext, ExerciseListProvider  } from './components/Contexts';
 
@@ -15,16 +16,19 @@ const App = () => {
 
   const [exercise, setExercise] = useState("");
   return (
+    <PaperProvider>
     <ExerciseName.Provider value={{exercise, setExercise}}>
       <ExerciseListProvider>
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Add Exercise" component={AddExerciseScreen} />
           <Tab.Screen name="Exercise list" component={ExerciseListScreen} />
+
         </Tab.Navigator>
       </NavigationContainer>
       </ExerciseListProvider>
       </ExerciseName.Provider>
+    </PaperProvider>
   );
 };
 

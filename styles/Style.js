@@ -23,8 +23,49 @@ export default Style = StyleSheet.create({
         marginTop:5, 
         marginBottom: 5,
         backgroundColor: 'black'
-    }
-
+    },
+    radioButtons: {
+        padding: 5,
+        margin: 5,
+    },
+    exerciseContainer: {
+        marginBottom: 10,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 8,
+      },
+    distanceContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 5,
+        padding: 10,
+      },
+      dateHeader: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 5,
+      },
+      distanceBox: {
+        backgroundColor: '#e0e0e0',
+        padding: 10,
+        borderRadius: 8,
+        alignItems: 'center',
+        flex: 1,
+        margin: 5,
+      },
+      unitContainer: {
+        marginBottom: 20,
+      },
+      radioButtonContainer: {
+        flexDirection: 'row',
+        marginTop: 10,
+      },
+      radioButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 20,
+      },
 })
 
 export const MyTheme = {
